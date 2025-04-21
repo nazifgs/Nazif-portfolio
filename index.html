@@ -3,215 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nazif Gürkan Şen</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <title>Nazif Gürkan Şen - Kişisel Portfolyo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: #f4f4f4;
-      color: #333;
+    html {
       scroll-behavior: smooth;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #333;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    header h1 {
-      cursor: pointer;
-    }
-
-    nav a {
-      color: white;
-      margin-left: 15px;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      padding: 80px 20px 40px;
-      min-height: 100vh;
-    }
-
-    #home {
-      background: #0088cc;
-      color: white;
-      text-align: center;
-    }
-
-    #home img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin: 20px 0;
-    }
-
-    #about, #skills, #projects, #contact {
-      background: white;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .skill-bar {
-      background: #ddd;
-      margin: 10px 0;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .skill-bar-fill {
-      height: 25px;
-      background: #00b894;
-      text-align: right;
-      color: white;
-      padding-right: 10px;
-      line-height: 25px;
-      animation: fill 2s ease-in-out forwards;
-      width: 0;
-    }
-
-    @keyframes fill {
-      to {
-        width: var(--fill);
-      }
-    }
-
-    .project {
-      background: #eee;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 10px 0;
-    }
-
-    .footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #333;
-      color: white;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-    }
-
-    .footer a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    .footer a:hover {
-      color: #00b894;
-    }
-
-    .instagram-box {
-      margin-top: 10px;
-    }
-
-    .instagram-box a {
-      display: inline-block;
-      color: white;
-      background: #e1306c;
-      padding: 10px 15px;
-      border-radius: 25px;
-      text-decoration: none;
-    }
-
-    .instagram-box a i {
-      margin-right: 8px;
     }
   </style>
 </head>
-<body>
+<body class="bg-white text-gray-900 transition-colors duration-300">
 
-  <header>
-    <h1 onclick="scrollToTop()">Nazif Gürkan Şen</h1>
-    <nav>
-      <a href="#about">Hakkımda</a>
-      <a href="#skills">Yetenekler</a>
-      <a href="#projects">Projeler</a>
-      <a href="#contact">İletişim</a>
+  <!-- Tema geçiş butonu -->
+  <button onclick="toggleTheme()" class="fixed top-4 right-4 bg-gray-800 text-white px-3 py-2 rounded z-50">
+    Tema Değiştir
+  </button>
+
+  <!-- Yukarı çık butonu -->
+  <button id="scrollTopBtn" class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg z-50 hidden">
+    ↑
+  </button>
+
+  <!-- Sabit üst menü -->
+  <header class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 shadow z-40">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <a href="#hero" class="font-bold text-lg hover:underline">Nazif Gürkan Şen</a>
+      <ul class="hidden md:flex space-x-6">
+        <li><a href="#about" class="hover:text-blue-600">Hakkımda</a></li>
+        <li><a href="#projects" class="hover:text-blue-600">Projeler</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">İletişim</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section id="home">
-    <h2>Merhaba, ben Nazif Gürkan Şen</h2>
-    <img src="https://raw.githubusercontent.com/Nazifgurkansen/nazifgs/main/1000000076.webp" alt="Profil Fotoğrafı"/>
-    <p>Web Geliştirici & Yazılım Öğrencisi</p>
-    <div class="instagram-box">
-      <a href="https://instagram.com/nazifgurkansen" target="_blank">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
+  <!-- Kahraman bölümü -->
+  <section id="hero" class="pt-28 pb-20 text-center bg-blue-100 dark:bg-gray-800">
+    <img src="https://avatars.githubusercontent.com/u/123456789?v=4" alt="Nazif Gürkan Şen" class="mx-auto w-32 h-32 rounded-full shadow-lg mb-4">
+    <h1 class="text-3xl font-bold">Merhaba, ben Nazif Gürkan Şen</h1>
+    <p class="mt-2 text-gray-600 dark:text-gray-300">Frontend Geliştirici & Öğrenci</p>
+    <a href="https://instagram.com/nazifgurkansen" target="_blank" class="inline-block mt-4 bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
+      Instagram
+    </a>
+  </section>
+
+  <!-- Hakkımda bölümü -->
+  <section id="about" class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4">Hakkımda</h2>
+      <p class="text-gray-700 dark:text-gray-300">
+        Yazılıma büyük ilgi duyuyorum. Web geliştirme üzerine çalışıyor, her geçen gün kendimi geliştiriyorum.
+        Şu anda HTML, CSS ve JavaScript ile projeler üretiyorum.
+      </p>
     </div>
   </section>
 
-  <section id="about">
-    <h2>Hakkımda</h2>
-    <p>Yazılım dünyasına tutkuyla bağlı bir geliştiriciyim. Web teknolojileri, tasarım ve kullanıcı deneyimi odaklı projeler geliştiriyorum.</p>
-  </section>
-
-  <section id="skills">
-    <h2>Yetenekler</h2>
-    <div class="skill-bar"><div class="skill-bar-fill" style="--fill: 90%;">HTML</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" style="--fill: 80%;">CSS</div></div>
-    <div class="skill-bar"><div class="skill-bar-fill" style="--fill: 60%;">JavaScript</div></div>
-  </section>
-
-  <section id="projects">
-    <h2>Projeler</h2>
-    <div class="project">
-      <h3>Portfolyo Web Sitesi</h3>
-      <p>Kişisel portfolyo sayfası, HTML, CSS ve JavaScript ile hazırlanmıştır.</p>
-      <a href="#" target="_blank">Projeye Git</a>
+  <!-- Projeler bölümü -->
+  <section id="projects" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6">Projeler</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg transition">
+          <h3 class="font-semibold mb-2">Portfolyo Sitesi</h3>
+          <p class="text-sm mb-2 text-gray-600 dark:text-gray-300">Kendi kişisel portfolyo sitem.</p>
+          <a href="https://nazifgurkansen.github.io/nazifportfolyo" target="_blank" class="text-blue-600 hover:underline">Projeye Git</a>
+        </div>
+        <!-- İkinci proje örneği -->
+        <div class="bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg transition">
+          <h3 class="font-semibold mb-2">Mini JavaScript Uygulaması</h3>
+          <p class="text-sm mb-2 text-gray-600 dark:text-gray-300">JavaScript ile yapılmış basit bir hesap makinesi.</p>
+          <a href="#" target="_blank" class="text-blue-600 hover:underline">Projeye Git</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>İletişim</h2>
-    <p><i class="fas fa-envelope"></i> snazifgurkan@gmail.com</p>
-    <p><i class="fab fa-instagram"></i> nazifgurkansen</p>
+  <!-- İletişim bölümü -->
+  <section id="contact" class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6">İletişim</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Adınız" class="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:text-white" />
+        <input type="email" placeholder="E-posta" class="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:text-white" />
+        <textarea placeholder="Mesajınız" rows="5" class="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:text-white"></textarea>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Gönder</button>
+      </form>
+    </div>
   </section>
 
-  <div class="footer">
-    <a href="#home"><i class="fas fa-home"></i></a>
-    <a href="#about"><i class="fas fa-user"></i></a>
-    <a href="#projects"><i class="fas fa-code"></i></a>
-    <a href="#contact"><i class="fas fa-envelope"></i></a>
-  </div>
+  <!-- Alt menü (mobil) -->
+  <footer class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 shadow-inner md:hidden z-40">
+    <nav class="flex justify-around p-2 text-sm">
+      <a href="#hero" class="hover:text-blue-600">Ana Sayfa</a>
+      <a href="#about" class="hover:text-blue-600">Hakkımda</a>
+      <a href="#projects" class="hover:text-blue-600">Projeler</a>
+      <a href="#contact" class="hover:text-blue-600">İletişim</a>
+    </nav>
+  </footer>
 
+  <!-- JavaScript -->
   <script>
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Yetenek barlarını doldurma animasyonu
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.skill-bar-fill').forEach(el => {
-        el.style.width = el.style.getPropertyValue('--fill');
-      });
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
     });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    function toggleTheme() {
+      document.documentElement.classList.toggle("dark");
+    }
   </script>
 
 </body>

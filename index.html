@@ -3,227 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nazif Gürkan Şen</title>
+  <title>Nazif Gürkan Şen | Web Geliştirici</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    :root {
-      --primary-color: #002f87;
-      --text-color: #fff;
-      --bg-color: #111;
-      --button-bg: #0033cc;
-    }
-
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.6;
       scroll-behavior: smooth;
     }
-
     header {
-      background: var(--primary-color);
-      text-align: center;
-      padding: 1rem;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
     }
-
     header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    .theme-btn {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: gray;
-      border: none;
-      color: white;
       cursor: pointer;
-      border-radius: 8px;
     }
-
-    #profile {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    #profile img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .button {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background: var(--button-bg);
-      color: white;
-      border-radius: 8px;
+    nav a {
+      margin-left: 1rem;
       text-decoration: none;
+      color: #333;
+      font-weight: bold;
     }
-
     section {
-      padding: 1.5rem;
-      animation: fadeIn 1s ease-in;
-    }
-
-    h2 {
-      border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 5px;
-    }
-
-    .project-card {
-      background: #222;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 10px;
-      transition: transform 0.3s, background 0.3s;
-    }
-
-    .project-card:hover {
-      transform: scale(1.03);
-      background: #333;
-    }
-
-    .skills-bar {
-      height: 10px;
-      background: gray;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-
-    .skills-fill {
-      height: 100%;
-      background: var(--primary-color);
-      width: 0;
-      transition: width 2s ease-in-out;
-    }
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: var(--primary-color);
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem 0;
-    }
-
-    .bottom-nav a {
-      color: white;
-      text-decoration: none;
-    }
-
-    #contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 400px;
+      padding: 4rem 2rem;
+      max-width: 1000px;
       margin: auto;
     }
-
-    #contact-form input, #contact-form textarea {
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
+    .about img {
+      max-width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
     }
-
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 60px;
-      right: 15px;
-      padding: 10px 15px;
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      display: none;
-      cursor: pointer;
+    .skills .bar {
+      background: #ddd;
+      margin: 1rem 0;
+      border-radius: 20px;
+      overflow: hidden;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .skills .bar span {
+      display: block;
+      height: 20px;
+      background: #4caf50;
+      width: 0;
+      animation: fillBar 2s forwards;
+    }
+    @keyframes fillBar {
+      to {
+        width: var(--width);
+      }
+    }
+    .projects .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .projects .card:hover {
+      transform: scale(1.02);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #333;
+      color: #fff;
+    }
+    .social-icons i {
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover i {
+      color: #4caf50;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Nazif Gürkan Şen</h1>
-    <button class="theme-btn" onclick="toggleTheme()">Tema Değiştir</button>
+    <h1 onclick="scrollToTop()">Nazif Gürkan Şen</h1>
+    <nav>
+      <a href="#about">Hakkımda</a>
+      <a href="#skills">Yetenekler</a>
+      <a href="#projects">Projeler</a>
+      <a href="#contact">İletişim</a>
+    </nav>
   </header>
 
-  <main id="profile">
-    <img src="profil.jpg" alt="Nazif Gürkan Şen">
-    <div>
-      <a class="button" href="https://instagram.com/">Instagram</a>
-      <a class="button" href="mailto:snazifgurkan@gmail.com">E-posta</a>
-    </div>
-  </main>
-
-  <section id="about">
+  <section id="about" class="about" style="text-align: center;">
+    <img src="1000000076.webp" alt="Nazif Gürkan Şen">
     <h2>Hakkımda</h2>
-    <p>Merhaba, ben Nazif Gürkan Şen. Yazılım geliştirici adayıyım ve bu portfolyo benim çalışmalarımı sergilemek için oluşturulmuştur.</p>
-  </section>
-
-  <section id="skills">
-    <h2>Yetenekler</h2>
-    <p>HTML</p>
-    <div class="skills-bar"><div class="skills-fill" style="width: 90%"></div></div>
-    <p>CSS</p>
-    <div class="skills-bar"><div class="skills-fill" style="width: 75%"></div></div>
-  </section>
-
-  <section id="projects">
-    <h2>Projeler</h2>
-    <div class="project-card">
-      <h3>Örnek Proje 1</h3>
-      <p>Bu proje HTML ve CSS kullanılarak yapılmıştır.</p>
+    <p>Merhaba! Ben Nazif Gürkan Şen. Web geliştirme serüvenime tutkuyla başladım ve her gün yeni şeyler öğrenerek kendimi geliştiriyorum.</p>
+    <div class="social-icons">
+      <a href="https://instagram.com/nazifgurkansen" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-    <div class="project-card">
-      <h3>Örnek Proje 2</h3>
-      <p>JavaScript ile etkileşimli bir uygulama.</p>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Yetenekler</h2>
+    <div class="bar"><label>HTML</label><span style="--width: 90%;"></span></div>
+    <div class="bar"><label>CSS</label><span style="--width: 80%;"></span></div>
+    <div class="bar"><label>JavaScript</label><span style="--width: 60%;"></span></div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projeler</h2>
+    <div class="card">
+      <h3>Portfolyo Sitesi</h3>
+      <p>Kendi portfolyo sayfamı oluşturarak web geliştirme alanında ilk adımımı attım.</p>
+      <a href="#" target="_blank">Projeye Git</a>
     </div>
   </section>
 
   <section id="contact">
     <h2>İletişim</h2>
-    <form id="contact-form">
-      <input type="text" placeholder="Adınız" required>
-      <input type="email" placeholder="E-posta" required>
-      <textarea rows="5" placeholder="Mesajınız"></textarea>
-      <button type="submit" class="button">Gönder</button>
-    </form>
+    <p>E-posta: snazifgurkan@gmail.com</p>
   </section>
 
-  <div class="bottom-nav">
-    <a href="#about">Hakkımda</a>
-    <a href="#skills">Yetenekler</a>
-    <a href="#projects">Projeler</a>
-    <a href="#contact">İletişim</a>
-  </div>
-
-  <button id="scrollTopBtn" onclick="scrollToTop()">Yukarı</button>
+  <footer>
+    <p>&copy; 2025 Nazif Gürkan Şen</p>
+  </footer>
 
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-      if(document.body.classList.contains('light-theme')) {
-        document.documentElement.style.setProperty('--bg-color', '#f4f4f4');
-        document.documentElement.style.setProperty('--text-color', '#000');
-      } else {
-        document.documentElement.style.setProperty('--bg-color', '#111');
-        document.documentElement.style.setProperty('--text-color', '#fff');
-      }
-    }
-
-    window.addEventListener('scroll', () => {
-      document.getElementById('scrollTopBtn').style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }

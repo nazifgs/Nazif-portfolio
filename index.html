@@ -3,114 +3,194 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nazif Gürkan Şen - Kişisel Portfolyo</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Nazif Gürkan Şen | Portfolyo</title>
   <style>
-    html {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    header h1:hover {
+      color: #f39c12;
+    }
+
+    .profile {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .profile img {
+      width: 150px;
+      border-radius: 50%;
+      border: 4px solid #f39c12;
+      transition: transform 0.3s ease;
+    }
+
+    .profile img:hover {
+      transform: scale(1.05);
+    }
+
+    .instagram-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #E1306C;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .instagram-button:hover {
+      background: #c1275b;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #f39c12;
+    }
+
+    /* Hakkımda ve Yetenekler */
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .about-text {
+      font-size: 18px;
+    }
+
+    .skills h3 {
+      margin-bottom: 10px;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill span {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .bar {
+      width: 100%;
+      background: #ddd;
+      height: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 10px;
+      width: 0;
+      background: #4CAF50;
+      border-radius: 5px;
+      animation: fillAnim 2s forwards;
+    }
+
+    .fill.html { width: 90%; background: #e44d26; }
+    .fill.css { width: 85%; background: #264de4; }
+    .fill.js { width: 70%; background: #f0db4f; }
+
+    @keyframes fillAnim {
+      from { width: 0; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
-<body class="bg-white text-gray-900 transition-colors duration-300">
+<body>
 
-  <!-- Tema geçiş butonu -->
-  <button onclick="toggleTheme()" class="fixed top-4 right-4 bg-gray-800 text-white px-3 py-2 rounded z-50">
-    Tema Değiştir
-  </button>
-
-  <!-- Yukarı çık butonu -->
-  <button id="scrollTopBtn" class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg z-50 hidden">
-    ↑
-  </button>
-
-  <!-- Sabit üst menü -->
-  <header class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 shadow z-40">
-    <nav class="container mx-auto flex justify-between items-center p-4">
-      <a href="#hero" class="font-bold text-lg hover:underline">Nazif Gürkan Şen</a>
-      <ul class="hidden md:flex space-x-6">
-        <li><a href="#about" class="hover:text-blue-600">Hakkımda</a></li>
-        <li><a href="#projects" class="hover:text-blue-600">Projeler</a></li>
-        <li><a href="#contact" class="hover:text-blue-600">İletişim</a></li>
-      </ul>
-    </nav>
+  <header>
+    <h1 onclick="scrollToTop()">Nazif Gürkan Şen</h1>
   </header>
 
-  <!-- Kahraman bölümü -->
-  <section id="hero" class="pt-28 pb-20 text-center bg-blue-100 dark:bg-gray-800">
-    <img src="https://avatars.githubusercontent.com/u/123456789?v=4" alt="Nazif Gürkan Şen" class="mx-auto w-32 h-32 rounded-full shadow-lg mb-4">
-    <h1 class="text-3xl font-bold">Merhaba, ben Nazif Gürkan Şen</h1>
-    <p class="mt-2 text-gray-600 dark:text-gray-300">Frontend Geliştirici & Öğrenci</p>
-    <a href="https://instagram.com/nazifgurkansen" target="_blank" class="inline-block mt-4 bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
-      Instagram
-    </a>
-  </section>
+  <div class="profile">
+    <img src="https://raw.githubusercontent.com/NazifGurkanSen/nazifgurkansen/main/resim.jpg" alt="Nazif Gürkan Şen">
+    <br>
+    <a href="https://instagram.com/nazifgurkansen" target="_blank" class="instagram-button">Instagram</a>
+  </div>
 
-  <!-- Hakkımda bölümü -->
-  <section id="about" class="py-16 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-4">Hakkımda</h2>
-      <p class="text-gray-700 dark:text-gray-300">
-        Yazılıma büyük ilgi duyuyorum. Web geliştirme üzerine çalışıyor, her geçen gün kendimi geliştiriyorum.
-        Şu anda HTML, CSS ve JavaScript ile projeler üretiyorum.
-      </p>
-    </div>
-  </section>
-
-  <!-- Projeler bölümü -->
-  <section id="projects" class="py-16 bg-gray-100 dark:bg-gray-800">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-6">Projeler</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg transition">
-          <h3 class="font-semibold mb-2">Portfolyo Sitesi</h3>
-          <p class="text-sm mb-2 text-gray-600 dark:text-gray-300">Kendi kişisel portfolyo sitem.</p>
-          <a href="https://nazifgurkansen.github.io/nazifportfolyo" target="_blank" class="text-blue-600 hover:underline">Projeye Git</a>
+  <section id="about" class="about">
+    <h2>Hakkımda</h2>
+    <div class="about-container">
+      <div class="about-text">
+        <p>Merhaba, ben Nazif Gürkan Şen. Web geliştirme alanında kendimi geliştiriyorum. HTML, CSS ve JavaScript başta olmak üzere modern teknolojilerle portfolyo projeleri üretiyorum.</p>
+        <p>Amacım kullanıcı dostu ve modern web sayfaları geliştirmek.</p>
+      </div>
+      <div class="skills">
+        <h3>Yeteneklerim</h3>
+        <div class="skill">
+          <span>HTML</span>
+          <div class="bar"><div class="fill html"></div></div>
         </div>
-        <!-- İkinci proje örneği -->
-        <div class="bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg transition">
-          <h3 class="font-semibold mb-2">Mini JavaScript Uygulaması</h3>
-          <p class="text-sm mb-2 text-gray-600 dark:text-gray-300">JavaScript ile yapılmış basit bir hesap makinesi.</p>
-          <a href="#" target="_blank" class="text-blue-600 hover:underline">Projeye Git</a>
+        <div class="skill">
+          <span>CSS</span>
+          <div class="bar"><div class="fill css"></div></div>
+        </div>
+        <div class="skill">
+          <span>JavaScript</span>
+          <div class="bar"><div class="fill js"></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- İletişim bölümü -->
-  <section id="contact" class="py-16 bg-white dark:bg-gray-900">
-    <div class="container mx-auto px-4">
-      <h2 class="text-2xl font-bold mb-6">İletişim</h2>
-      <form class="space-y-4">
-        <input type="text" placeholder="Adınız" class="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:text-white" />
-        <input type="email" placeholder="E-posta" class="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:text-white" />
-        <textarea placeholder="Mesajınız" rows="5" class="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:text-white"></textarea>
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Gönder</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Alt menü (mobil) -->
-  <footer class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 shadow-inner md:hidden z-40">
-    <nav class="flex justify-around p-2 text-sm">
-      <a href="#hero" class="hover:text-blue-600">Ana Sayfa</a>
-      <a href="#about" class="hover:text-blue-600">Hakkımda</a>
-      <a href="#projects" class="hover:text-blue-600">Projeler</a>
-      <a href="#contact" class="hover:text-blue-600">İletişim</a>
-    </nav>
+  <footer>
+    © 2025 Nazif Gürkan Şen | Tüm Hakları Saklıdır
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    const scrollBtn = document.getElementById("scrollTopBtn");
-    window.addEventListener("scroll", () => {
-      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    function toggleTheme() {
-      document.documentElement.classList.toggle("dark");
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 
